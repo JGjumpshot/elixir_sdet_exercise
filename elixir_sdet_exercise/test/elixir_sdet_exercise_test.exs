@@ -5,7 +5,7 @@ defmodule ElixirSdetExerciseTest do
 
   # Start hound session and destroy when tests are run
   hound_session()
-
+  
   test "First Name no last name entered" do
     # window_handle = current_window_handle()
     # maximize_window(window_handle)
@@ -37,12 +37,8 @@ defmodule ElixirSdetExerciseTest do
     click(sign_up_button)
     pop_up = find_element(:css, "#globalContainer > div.uiContextualLayerPositioner._572t.uiLayer > div > div")
     text = visible_text(pop_up)
-    IO.puts(text)
-    if(text == ~c("What's your name?\nClose popup and return")) do
-      assert true
-    else 
-      assert false
-    end
-    :timer.sleep(10000)
+    IO.puts(String.length(text))
+    assert String.length(text) == 40
+    
   end
 end
