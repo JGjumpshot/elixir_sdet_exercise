@@ -9,7 +9,6 @@ use Mix.Config
 # third-party users, it should be done in your "mix.exs" file.
 
 config :hound, driver: "chrome_driver"
-
 # You can configure your application as:
 #
 #     config :elixir_sdet_exercise, key: :value
