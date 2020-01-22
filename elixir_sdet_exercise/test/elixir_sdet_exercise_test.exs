@@ -10,7 +10,7 @@ defmodule ElixirSdetExerciseTest do
   test "First Name no last name entered" do
     # window_handle = current_window_handle()
     # maximize_window(window_handle)
-    counter = 50
+    counter = :rand.uniform(100)
     navigate_to "https://www.facebook.com"
     first_name = find_element(:name, "firstname")
     fill_field(first_name, "Samuel")
@@ -44,7 +44,7 @@ defmodule ElixirSdetExerciseTest do
   
   @tag runnable: false
   test "Last Name no first name entered" do
-    counter = 57
+    counter = :rand.uniform(100)
     navigate_to "https://www.facebook.com"
     # first_name = find_element(:name, "firstname")
     # fill_field(first_name, "Samuel")
@@ -78,13 +78,13 @@ defmodule ElixirSdetExerciseTest do
 
   @tag runnable: true
   test "First name with random characters" do
-    counter = 56
+    counter = :rand.uniform(100)
     navigate_to "https://www.facebook.com"
     first_name = find_element(:name, "firstname")
     fill_field(first_name, "xcverw")
     last_name = find_element(:name, "lastname")
     fill_field(last_name, "Gonzalez")
-    email_input = "rob#{counter}@gmail.com"
+    email_input = "roberto#{counter}@gmail.com"
     email = find_element(:name, "reg_email__")
     fill_field(email, email_input)
     confirm_email = find_element(:name, "reg_email_confirmation__")
