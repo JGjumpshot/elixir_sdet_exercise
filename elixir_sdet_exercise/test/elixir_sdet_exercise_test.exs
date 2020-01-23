@@ -244,8 +244,7 @@ defmodule ElixirSdetExerciseTest do
     pop_up = find_element(:css, "#globalContainer > div.uiContextualLayerPositioner._572t.uiLayer > div > div")
     text = visible_text(pop_up)
     assert String.length(text) == 75
-
-    # :timer.sleep(10000)
+    
   end
 
   @tag runnable: true
@@ -281,5 +280,6 @@ defmodule ElixirSdetExerciseTest do
     text = visible_text(pop_up)
     #IO.puts(String.length(text))
     assert String.length(text) == 52
+    :timer.sleep(2000)
   end
 end
