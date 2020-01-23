@@ -204,8 +204,6 @@ defmodule ElixirSdetExerciseTest do
 
     element = find_element(:css, "#reg_error_inner", 5)
     assert element != nil
-
-    # :timer.sleep(10000)
   end
 
   @tag runnable: false
@@ -303,8 +301,6 @@ defmodule ElixirSdetExerciseTest do
     :timer.sleep(1200)
     pop_up = find_element(:css, ".fsl.fwb.fcb", 5)
     text = visible_text(pop_up)
-    #IO.puts(String.length(text))
     assert String.length(text) == 52
-    :timer.sleep(2000)
   end
 end
