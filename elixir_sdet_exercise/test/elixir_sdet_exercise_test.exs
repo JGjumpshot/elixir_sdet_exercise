@@ -37,7 +37,6 @@ defmodule ElixirSdetExerciseTest do
     click(sign_up_button)
     pop_up = find_element(:css, "#globalContainer > div.uiContextualLayerPositioner._572t.uiLayer > div > div", 5)
     text = visible_text(pop_up)
-    # IO.puts(String.length(text))
     assert String.length(text) == 40
   end
 
@@ -140,7 +139,7 @@ defmodule ElixirSdetExerciseTest do
     assert element != nil
   end
 
-  @tag runnable: true
+  @tag runnable: false
   test "Password too short" do
     counter = :rand.uniform(100)
     navigate_to "https://www.facebook.com"
