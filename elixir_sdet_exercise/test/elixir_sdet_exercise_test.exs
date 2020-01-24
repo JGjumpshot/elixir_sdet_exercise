@@ -1,20 +1,19 @@
 defmodule ElixirSdetExerciseTest do
   # Import helpers
   use Hound.Helpers
-  use ExUnit.Case, async: false
-  # Start hound session and destroy when tests are run
+  use ExUnit.Case
+
   hound_session()
- 
+
   @tag runnable: false
   test "First Name no last name entered" do
+    #optional maximize window
     # window_handle = current_window_handle()
     # maximize_window(window_handle)
     counter = :rand.uniform(100)
     navigate_to "https://www.facebook.com"
     first_name = find_element(:name, "firstname")
     fill_field(first_name, "Samuel")
-    # last_name = find_element(:name, "lastname")
-    # fill_field(last_name, "Gonzalez")
     email_input = "rob#{counter}@gmail.com"
     email = find_element(:name, "reg_email__")
     fill_field(email, email_input)
@@ -44,8 +43,6 @@ defmodule ElixirSdetExerciseTest do
   test "Last Name no first name entered" do
     counter = :rand.uniform(100)
     navigate_to "https://www.facebook.com"
-    # first_name = find_element(:name, "firstname")
-    # fill_field(first_name, "Samuel")
     last_name = find_element(:name, "lastname")
     fill_field(last_name, "Gonzalez")
     email_input = "rob#{counter}@gmail.com"
@@ -70,7 +67,6 @@ defmodule ElixirSdetExerciseTest do
     click(sign_up_button)
     pop_up = find_element(:css, "#globalContainer > div.uiContextualLayerPositioner._572t.uiLayer > div > div", 3)
     text = visible_text(pop_up)
-    # IO.puts(String.length(text))
     assert String.length(text) == 40
   end
 
@@ -134,7 +130,6 @@ defmodule ElixirSdetExerciseTest do
     click(select_gender)
     sign_up_button = find_element(:name, "websubmit")
     click(sign_up_button)
-
     element = find_element(:css, "#reg_error", 5)
     assert element != nil
   end
@@ -200,7 +195,6 @@ defmodule ElixirSdetExerciseTest do
     click(select_gender)
     sign_up_button = find_element(:name, "websubmit")
     click(sign_up_button)
-
     element = find_element(:css, "#reg_error_inner", 5)
     assert element != nil
   end
@@ -231,7 +225,6 @@ defmodule ElixirSdetExerciseTest do
     click(select_gender)
     sign_up_button = find_element(:name, "websubmit")
     click(sign_up_button)
-
     pop_up = find_element(:css, "#globalContainer > div.uiContextualLayerPositioner._572t.uiLayer > div > div", 5)
     text = visible_text(pop_up)
     assert String.length(text) == 75
@@ -263,10 +256,9 @@ defmodule ElixirSdetExerciseTest do
       click(select_gender)
       sign_up_button = find_element(:name, "websubmit")
       click(sign_up_button)
-
       pop_up = find_element(:css, "#globalContainer > div.uiContextualLayerPositioner._572t.uiLayer > div > div", 5)
       text = visible_text(pop_up)
-      assert String.length(text) == 75   
+      assert String.length(text) == 75
   end
 
   @tag runnable: true
@@ -301,5 +293,6 @@ defmodule ElixirSdetExerciseTest do
     pop_up = find_element(:css, ".fsl.fwb.fcb", 5)
     text = visible_text(pop_up)
     assert String.length(text) == 52
+    :timer.sleep(2000)
   end
 end
